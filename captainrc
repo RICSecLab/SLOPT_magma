@@ -1,0 +1,34 @@
+###
+## Configuration parameters
+###
+
+# WORKDIR: path to directory where shared volumes will be created
+WORKDIR=./slopt-magma
+
+# REPEAT: number of campaigns to run per program (per fuzzer)
+REPEAT=10
+
+# [WORKERS]: number of worker threads (default: CPU cores)
+WORKERS=110
+
+# [TIMEOUT]: time to run each campaign. This variable supports one-letter
+# suffixes to indicate duration (s: seconds, m: minutes, h: hours, d: days)
+# (default: 1m)
+TIMEOUT=1d
+
+# [POLL]: time (in seconds) between polls (default: 5)
+POLL=5
+
+# [ISAN]: if set, build the benchmark with ISAN/fatal canaries (default: unset)
+ISAN=1
+
+###
+## Campaigns to run
+###
+
+# FUZZERS: an array of fuzzer names (from magma/fuzzers/*) to evaluate
+FUZZERS=(slopt)
+
+# [fuzzer_TARGETS]: an array of target names (from magma/targets/*) to fuzz with
+# `fuzzer` (default: all targets)
+slopt_TARGETS=(openssl php sqlite3)
